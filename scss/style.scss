@@ -1,9 +1,4 @@
-$font-stack: Arial,
-Helvetica,
-sans-serif;
-$light-color: #f4f4f4;
-$primary-color: #0e6cff;
-$secondary-colour: #ff8700;
+@import 'config';
 
 * {
   box-sizing: border-box;
@@ -26,8 +21,7 @@ a {
 }
 
 .showcase {
-  background-color: $primary-color;
-  color: #fff;
+  @include set-background($primary-color);
   height: 600px;
 
   nav {
@@ -44,16 +38,17 @@ a {
       padding: 15px;
     }
 
+    a {
+      color: set-text-color($primary-color);
+    }
+
     a:hover {
-      color: $secondary-colour;
+      color: $secondary-color;
     }
   }
 
-  a {
-    color: #fff;
-  }
-
   &-content {
+    margin-top: 30px;
     height: 100%;
     display: flex;
     align-items: center;
@@ -67,17 +62,10 @@ a {
       font-size: 50px;
       line-height: 1.2;
     }
-
-    p {
-      margin: 20px 0;
-    }
   }
 
 }
 
-.container {
-  max-width: 1100px;
-  padding: 0 30px;
-  margin: 0 auto;
-  overflow: auto;
-}
+@import 'util';
+@import 'buttons';
+@import 'mobile';
